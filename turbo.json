@@ -1,7 +1,7 @@
 {
   "$schema": "https://turborepo.org/schema.json",
   "globalDependencies": ["tsconfig.base.json", ".eslintrc.js", ".prettierrc.js"],
-  "pipeline": {
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", "tsconfig.tsbuildinfo"]
