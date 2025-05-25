@@ -1,0 +1,17 @@
+{
+  "name": "@mcp-suite/shared-types",
+  "version": "0.1.0",
+  "description": "Shared TypeScript types for MCP Suite",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --build",
+    "dev": "tsc --build --watch",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.7.0"
+}

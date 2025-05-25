@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    // --- 基本编译选项 ---
+    "target": "ES2020", // 编译目标ECMAScript版本
+    "module": "commonjs", // 模块系统 (对于Node.js包，commonjs是安全的起点)
+    "lib": ["ES2020", "DOM"], // 编译过程中需要引入的库声明文件 (DOM是为了前端包)
+    "esModuleInterop": true, // 允许通过import * as React from 'react'的方式导入CommonJS模块
+    "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
+    "skipLibCheck": true, // 跳过所有声明文件的类型检查 (提高编译速度)
+    "resolveJsonModule": true, // 允许导入JSON模块
+    // --- 严格类型检查 ---
+    "strict": true, // 启用所有严格类型检查选项
+    // "noImplicitAny": true,       // (strict已包含) 禁止隐式的any类型
+    // "strictNullChecks": true,    // (strict已包含) 严格的null检查
+    // ... 其他strict选项
+
+    // --- 模块解析 ---
+    "moduleResolution": "node", // 模块解析策略
+    "baseUrl": ".", // 用于路径别名的基准目录
+    "paths": {
+      // 路径别名，方便包间引用
+      "@mcp-suite/*": ["packages/*/src"] // 指向各个包的src目录
+    },
+
+    // --- 输出选项 ---
+    "declaration": true, // 生成相应的 '.d.ts' 文件
+    "declarationMap": true, // 为 '.d.ts' 文件生成sourceMap
+    "sourceMap": true, // 生成 '.js.map' 文件
+    // "outDir": "dist",            // 输出目录 (通常在具体包的tsconfig中定义)
+    // "rootDir": "src",            // 输入文件的根目录 (通常在具体包的tsconfig中定义)
+
+    // --- 项目引用与增量编译 (Turborepo会利用) ---
+    "composite": true, // 允许被其他项目通过project references引用 (通常在具体包的tsconfig中启用)
+    "incremental": true // 启用增量编译
+  },
+  "exclude": ["node_modules", "dist", "**/dist", "**/*.config.js"] // 排除编译的文件/目录
+}

@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "commonjs", // VSCode 插件通常使用 commonjs
+    "outDir": "dist",
+    "rootDir": "src",
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@mcp-suite/*": ["../../*/src"]
+    }
+    // "lib": ["ES2020"], // 如果确定不需要DOM，可以覆盖lib
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", ".vscode-test", "dist"], // 排除VSCode测试运行器目录和输出目录
+  "references": [
+    { "path": "../shared-types" },
+    { "path": "../core-engine" } // 声明依赖
+  ]
+}

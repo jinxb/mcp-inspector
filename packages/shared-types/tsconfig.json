@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "composite": true, // 允许此包被其他包通过项目引用链接
+    "baseUrl": ".", // 确保baseUrl和paths在此处也正确解析
+    "paths": {
+      // 此包是最基础的，通常不通过@mcp-suite/* 引用其他内部包
+      // 但为了统一，可以保留，或针对性配置
+      "@mcp-suite/*": ["../../*/src"]
+    }
+  },
+  "include": ["src/**/*"], // 只编译src目录下的文件
+  "references": [] // 此包不依赖工作区内其他TS项目
+}
